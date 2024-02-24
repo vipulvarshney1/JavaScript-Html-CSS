@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Display-time</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        .border {
+            text-align: center;
+            align-items: center;
+        }
+        .border {
+            border: 2px solid rgb(170, 155, 155);
+            border-radius: 10px;
+            padding: 10px;
+            margin-top: 50px;
+            display: inline-block; 
+            background-color: rgb(236, 146, 146);
+        }
+        p{
+            color: blue;
+        }
+        #display{
+            border-radius: 10px;
+            background-color:rgb(167, 243, 173);
+            color:rgb(66, 161, 240);
+            padding: 10px;
+        }
+        input{
+            background-color: rgb(122, 113, 113);
+            color: azure;
+        }
+        .hidden {
+            display: none;
+        }
+        #displayButton, #REMOVEButton{
+            margin-top: 10px;
+            padding:10px;
+            border-radius: 10px;
+        }
+        
+    </style>
+
+</head>
+<body>
+    <main>
+        <section>
+            <center>
+            <div class="border">
+                <h1>Display-time and date</h1>
+                <p>
+                    Please click the button
+                </p>
+                <p id="display" class="hidden"></p>
+                <input type="button" id="displayButton" value="Display-time" onclick="displayDate()">
+                <input type="button" id="REMOVEButton" value="Remove" onclick="removeDate()">
+            </div></center>
+        </section>
+    </main>
+</body>
+
+<script>
+    function displayDate() {
+        var displayElement = document.getElementById("display");
+        var options = { month: 'long',  weekday: 'long', year: 'numeric', day: 'numeric', hour: 'numeric', minute: 'numeric', second: 'numeric'};
+        var currentDate = new Date();
+        displayElement.innerHTML = "Current Date: " + currentDate.toLocaleDateString('en-US', options); 
+        displayElement.classList.remove('hidden'); 
+    }
+
+    function removeDate() {
+        var displayElement = document.getElementById("display");
+        displayElement.classList.add('hidden');
+    }
+</script>
+</html>
